@@ -37,7 +37,7 @@ public class MainController {
         return "index";
     }
 
-    @GetMapping("/loginPage")
+    @GetMapping("/login")
     public String loginPage() {
         return "login";
     }
@@ -49,13 +49,16 @@ public class MainController {
     }
 
     @GetMapping("/admin")
-    public String adminPage() {
-        return "register";
+    public String adminPage(User user) {
+
+        // if ()
+        return "forward:register";
     }
 
+    /*@ModelAttribute("user" User user - это аннотация, которая связывает параметр метода или возвращаемое
+     значение метода с именованным атрибутом модели, а затем предоставляет его веб-представлению.)*/
     @PostMapping(path = "/create")
-    private String addNewUser(HttpServletRequest request, @ModelAttribute("user") User user, BindingResult bindingResult) {
-
+    public String addNewUser(HttpServletRequest request, @ModelAttribute("user") User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "/register";
         }
@@ -72,17 +75,19 @@ public class MainController {
 
         /*      anything code ...   */
         UserAccount userAccount = new UserAccount();
-            userAccount.setEmailaccount(user.getEmail());
-            userAccount.setHexaccount(q);
+        userAccount.setEmailaccount(user.getEmail());
+        userAccount.setHexaccount(q);
 
-            userAccount.setRole("user");
+        userAccount.setRole("user");
 
 
         userRepository.save(user);
-        return "admin";
+
+        request.getSession().setAttribute("user", user);
+        return "redirect:login";
     }
 
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)  throws IOException, ServletException {
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpServletResponse resp = (HttpServletResponse) response;
         HttpSession session = req.getSession();
@@ -92,12 +97,14 @@ public class MainController {
             type = Role.USER;
             session.setAttribute("userType", type);
 
-            return ;
+            return;
         }
     }
 
     @GetMapping("/autorisationFailedPage")
-    public String autorisationFailedPage(){return "autorisationFailedPage";}
+    public String autorisationFailedPage() {
+        return "autorisationFailedPage";
+    }
 
 
     @GetMapping("/add-api")
