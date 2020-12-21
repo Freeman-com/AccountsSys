@@ -1,8 +1,7 @@
-package com.root.controllers;
+package com.root.web.controllers;
 
-import com.root.accessingdatamysql.UserRepository;
-import com.root.entity.User;
-import com.root.entity.UserAccount;
+import com.root.dao.UserRepository;
+import com.root.model.Users;
 import com.root.role.Role;
 import org.springframework.stereotype.Controller;
 
@@ -43,13 +42,13 @@ public class MainController {
     }
 
     @GetMapping("/registrationPage")
-    public String registrationPage(@ModelAttribute("user") User user) {
+    public String registrationPage(@ModelAttribute("user") Users user) {
 
         return "register";
     }
 
     @GetMapping("/admin")
-    public String adminPage(User user) {
+    public String adminPage(Users user) {
 
         // if ()
         return "forward:register";
@@ -58,7 +57,7 @@ public class MainController {
     /*@ModelAttribute("user" User user - это аннотация, которая связывает параметр метода или возвращаемое
      значение метода с именованным атрибутом модели, а затем предоставляет его веб-представлению.)*/
     @PostMapping(path = "/create")
-    public String addNewUser(HttpServletRequest request, @ModelAttribute("user") User user, BindingResult bindingResult) {
+    public String addNewUser(HttpServletRequest request, @ModelAttribute("user") Users user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "/register";
         }
@@ -71,15 +70,7 @@ public class MainController {
         String q = bytesToHex(c);
         user.setHex(q);
 
-        /*checked method*/
-
         /*      anything code ...   */
-        UserAccount userAccount = new UserAccount();
-        userAccount.setEmailaccount(user.getEmail());
-        userAccount.setHexaccount(q);
-
-        userAccount.setRole("user");
-
 
         userRepository.save(user);
 
