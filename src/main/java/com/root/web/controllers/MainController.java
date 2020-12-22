@@ -1,8 +1,7 @@
 package com.root.web.controllers;
 
 import com.root.dao.UserRepository;
-import com.root.model.Users;
-import com.root.role.Role;
+import com.root.model.User;
 import org.springframework.stereotype.Controller;
 
 import org.springframework.validation.BindingResult;
@@ -42,13 +41,13 @@ public class MainController {
     }
 
     @GetMapping("/registrationPage")
-    public String registrationPage(@ModelAttribute("user") Users user) {
+    public String registrationPage(@ModelAttribute("user") User user) {
 
         return "register";
     }
 
     @GetMapping("/admin")
-    public String adminPage(Users user) {
+    public String adminPage(User user) {
 
         // if ()
         return "forward:register";
@@ -57,7 +56,7 @@ public class MainController {
     /*@ModelAttribute("user" User user - это аннотация, которая связывает параметр метода или возвращаемое
      значение метода с именованным атрибутом модели, а затем предоставляет его веб-представлению.)*/
     @PostMapping(path = "/create")
-    public String addNewUser(HttpServletRequest request, @ModelAttribute("user") Users user, BindingResult bindingResult) {
+    public String addNewUser(HttpServletRequest request, @ModelAttribute("user") User user, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "/register";
         }
@@ -68,7 +67,7 @@ public class MainController {
         byte[] c = x.getBytes();
         /* q - endpoint DB variable */
         String q = bytesToHex(c);
-        user.setHex(q);
+        .setHex(q);
 
         /*      anything code ...   */
 
@@ -78,19 +77,6 @@ public class MainController {
         return "redirect:login";
     }
 
-    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest req = (HttpServletRequest) request;
-        HttpServletResponse resp = (HttpServletResponse) response;
-        HttpSession session = req.getSession();
-
-        Role type = (Role) session.getAttribute("userType");
-        if (type == null) {
-            type = Role.USER;
-            session.setAttribute("userType", type);
-
-            return;
-        }
-    }
 
     @GetMapping("/autorisationFailedPage")
     public String autorisationFailedPage() {
