@@ -1,42 +1,11 @@
 package com.root.role;
 
-public enum Role {
+public class Role {
 
-    OWNER("owner") {
-        @Override
-        public void apply() {
+    public final String CUSTOMER = "CUSTOMER";
+    public final String ADMIN = "ADMIN";
+    public final String SUPER_ADMIN = "SUPER_ADMIN";
+    public final String OWNER = "OWNER";
 
-        }
-    },
-    ADMIN("administrator") {
-        @Override
-        public void apply() {
 
-        }
-    },
-    SUPER_ADMIN("super administrator") {
-        @Override
-        public void apply() {
-
-        }
-    },
-    CUSTOMER("my cutomer") {
-        @Override
-        public void apply() {
-
-        }
-    };
-
-    private String theName;
-
-    public abstract void apply();
-
-    Role(String theName) {
-        this.theName = theName;
-    }
-
-    @Override
-    public String toString() {
-        return this.theName;
-    }
 }

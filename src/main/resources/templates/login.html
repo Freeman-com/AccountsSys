@@ -25,10 +25,10 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Sign in to start your session</p>
 
-      <form action="login" method="post">
+      <form th:action="@{/click_login}" th:method="POST" th:object="${user}">
         <div class="input-group mb-3">
 
-            <input type="email" class="form-control" placeholder="Email">
+            <input type="email" class="form-control" placeholder="Email" name="email" id="email" th:field="*{email}">
 
           <div class="input-group-append">
             <div class="input-group-text">
@@ -38,7 +38,7 @@
         </div>
         <div class="input-group mb-3">
 
-            <input type="password" class="form-control" placeholder="Password">
+            <input type="password" class="form-control" placeholder="Password" name="password2" id="password2">
 
           <div class="input-group-append">
             <div class="input-group-text">
