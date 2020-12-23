@@ -8,16 +8,16 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
-@RestController
+@Controller
+@RequestMapping("/")
 public class RegistrationRestController {
 
     private final UserService userService;
@@ -32,14 +32,37 @@ public class RegistrationRestController {
         this.userService = userService;
     }
 
+    @GetMapping(path = "/")
+    public String indexPage(){
+        return "index";
+    }
+
+    @GetMapping("/registrationPage")
+    public String registrationPage(@ModelAttribute("user") User user) {
+
+        return "register";
+    }
+
     @RequestMapping(method = RequestMethod.POST, path = "/create")
-    public String registerUserAccount(@Valid final UserDto accountDto, final HttpServletRequest request) {
+    public String registerUserAccount(@Valid final UserDto accountDto, @ModelAttribute("user") User user,
+                                      final HttpServletRequest request, BindingResult bindingResult) {
+            if (bindingResult.hasErrors()){
+                return "/register";
+            }
         LOGGER.debug("Registering user account with information: {}", accountDto);
+
+            String username1 = user.getName();
+            String passwd1 = request.getParameter("passwd");
+
+        String x = username1 + passwd1;
+        byte[] c = x.getBytes();
+        String q = bytesToHex(c);
+        user.getHex(q);
 
         final User registered = userService.registerNewUserAccount(accountDto);
         userService.addUserLocation(registered, getClientIP(request));
-        eventPublisher.publishEvent(new OnRegistrationCompleteEvent(registered, request.getLocale(), getAppUrl(request)));
-        return new GenericResponse("success");
+
+            return "redirect:admin";
     }
 
     private String getClientIP(HttpServletRequest request) {
@@ -48,5 +71,16 @@ public class RegistrationRestController {
             return request.getRemoteAddr();
         }
         return xfHeader.split(",")[0];
+    }
+    private static String bytesToHex(byte[] hash) {
+        StringBuilder hexString = new StringBuilder();
+        for (byte b : hash) {
+            String hex = Integer.toHexString(0xff & b);
+            if (hex.length() == 1) {
+                hexString.append('0');
+            }
+            hexString.append(hex);
+        }
+        return hexString.toString();
     }
 }

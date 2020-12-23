@@ -17,6 +17,7 @@ import java.net.InetAddress;
 import java.util.List;
 import java.util.stream.Collectors;
 import javax.transaction.Transactional;
+
 import com.maxmind.geoip2.DatabaseReader;
 
 @Service
@@ -54,7 +55,7 @@ public class UserService {
 
     public void addUserLocation(User user, String ip) {
 
-        if(!isGeoIpLibEnabled()) {
+        if (!isGeoIpLibEnabled()) {
             return;
         }
 
@@ -74,9 +75,12 @@ public class UserService {
     private boolean emailExists(final String email) {
         return userRepository.findByEmail(email) != null;
     }
+
     private boolean isGeoIpLibEnabled() {
         return Boolean.parseBoolean(env.getProperty("geo.ip.lib.enabled"));
     }
+
+
 
 
 }

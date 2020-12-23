@@ -9,14 +9,11 @@ import javax.persistence.*;
 public class User {
 
     @Id
-    @Column(name = "id")
-    private Long ID;
-
+    private Long id;
     private String name;
-
     private String email;
-
     private Role userRole;
+    private String hex;
 
     public User(Long id, String name, String email, Role userRole) {
 
@@ -26,13 +23,20 @@ public class User {
 
     }
 
-
-    public Long getID() {
-        return ID;
+    public String getHex(String q) {
+        return hex;
     }
 
-    public void setID(final Long ID) {
-        this.ID = ID;
+    public void setHex(String hex) {
+        this.hex = hex;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(final Long id) {
+        this.id = id;
     }
 
     public String getName() {
