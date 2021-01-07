@@ -1,7 +1,10 @@
 package com.root.model;
 
+import com.root.role.Role;
+
 import javax.persistence.*;
 import javax.servlet.http.HttpServletRequest;
+import java.util.Collection;
 
 @Entity
 @Table(name = "user")
@@ -10,7 +13,7 @@ public class User {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+    private int id;
     @Column(name = "name")
     private String name;
     @Column(name = "email")
@@ -22,9 +25,13 @@ public class User {
     @Column(name = "hex")
     private String hex;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private UsersData usersData;
+
     public User() { }
 
-    public User(Long id, String name, String email, String role, String ip, String hex) {
+    public User(int id, String name, String email, String role, String ip, String hex) {
         this.id = id;
         this.name = name;
         this.email = email;
@@ -44,11 +51,19 @@ public class User {
                 '}';
     }
 
-    public Long getId() {
+    public UsersData getUsersData() {
+        return usersData;
+    }
+
+    public void setUsersData(UsersData usersData) {
+        this.usersData = usersData;
+    }
+
+    public int getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.id = id;
     }
 

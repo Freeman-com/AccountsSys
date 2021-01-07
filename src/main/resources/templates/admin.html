@@ -1,258 +1,363 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-
-    <meta charset="ISO-8859-1"/>
-    <title th:text="${user.getName()}">id:</title>
-
+    <meta charset="UTF-8"/>
+    <title th:text="${user.getName()}"></title>
     <!-- Google Font: Source Sans Pro -->
-    <link rel="stylesheet"
-          href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}">
-    <!-- Font Awesome -->
-    <link rel="stylesheet" th:href="@{/plugins/fontawesome-free/css/all.min.css}">
-    <!-- overlayScrollbars -->
-    <link rel="stylesheet" th:href="@{/plugins/overlayScrollbars/css/OverlayScrollbars.min.css}">
-    <!-- Theme style -->
-    <link rel="stylesheet" th:href="@{/dist/css/adminlte.min.css}">
-    <!-- Box CSS -->
-    <link rel="stylesheet" th:href="@{/adminPage.css}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
 </head>
-<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
-<div class="wrapper">
-    <!-- Navbar -->
-    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-            <li class="nav-item">
-                <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a th:href="@{/}" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a th:href="@{/add-api}" class="nav-link">Add your API's</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a th:href="@{/trade}" class="nav-link">Trade</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a th:href="@{/buyipo}" class="nav-link">Buy IPO</a>
-            </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a th:href="@{/buyico}" class="nav-link">Buy ICO</a>
-            </li>
-        </ul>
-    </nav>
-    <!-- /.navbar -->
 
-    <!-- Main Sidebar Container -->
-    <aside class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Sidebar -->
-        <div class="sidebar">
-            <!-- Sidebar user panel (optional) -->
-            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                <div class="image">
-                    <img src="../../dist/img/iuyyiuyu.png" class="img-circle elevation-2" alt="User Image">
-                </div>
-                <div class="info">
-                    <a th:href="@{/admin}" class="d-block" th:text="${user.getName()}"></a>
-                </div>
-            </div>
-            <!-- SidebarSearch Form -->
-            <div class="form-inline">
-                <div class="input-group" data-widget="sidebar-search">
-                    <input class="form-control form-control-sidebar" type="search" placeholder="Search"
-                           aria-label="Search">
-                    <div class="input-group-append">
-                        <button class="btn btn-sidebar">
-                            <i class="fas fa-search fa-fw"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Sidebar Menu -->
-            <nav class="mt-2">
-                <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                    data-accordion="false">
-                    <!-- Add icons to the links using the .nav-icon class
-                         with font-awesome or any other icon font library -->
-
-                    <li class="nav-header">LABELS</li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-circle text-danger"></i>
-                            <p class="text">Important</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-circle text-warning"></i>
-                            <p>Warning</p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            <i class="nav-icon far fa-circle text-info"></i>
-                            <p>Informational</p>
-                        </a>
-                    </li>
+<body>
+<header id="header" class="header">
+    <div class="container1">
+        <!-- ================NAVBAR======================== -->
+        <ul class="menu">
+            <li><a class="active" th:href="@{/}">HOME</a></li>
+            <li><a>API</a>
+                <ul class="sub-menu">
+                    <a th:href="@{/}">ADD API</a>
+                    <a th:href="@{/}">SHOW ADDED API</a>
                 </ul>
-            </nav>
-            <!-- /.sidebar-menu -->
-        </div>
-        <!-- /.sidebar -->
-    </aside>
+            </li>
 
-    <!-- Content Wrapper. Contains page content -->
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
-                    <h1 class="m-0">Dashboard v2</h1>
-                </div><!-- /.col -->
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Dashboard v2</li>
-                    </ol>
-                </div><!-- /.col -->
-            </div><!-- /.row -->
-        </div><!-- /.container-fluid -->
+            <li><a>BALANCE</a>
+                <ul class="sub-menu">
+                    <a th:href="@{/}">ALL BALANCE</a>
+                    <a th:href="@{/}">PROFITABILITY STATISTICS</a>
+                </ul>
+            </li>
+            <li><a>TRANSACTIONS</a>
+                <ul class="sub-menu">
+                    <a th:href="@{/}">CREATE TRANSACTION</a>
+                    <a th:href="@{/}">HISTORY TRANSACTIONS</a>
+                </ul>
+            </li>
+            <li><a class="settings0" th:href="@{/}">IPO/ICO</a>
+            <li><a class="settings3" th:href="@{/login}">LOGOUT</a>
+        </ul>
     </div>
-    <!-- /.content-header -->
+</header>
+<!-- ================MAIN======================== -->
+<section id="section" class="section">
+    <div class="left">
+        <h1>Total Balance: $ ...</h1>
+        <!-- ================CHART======================== -->
+        <script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/themes/dark.js"></script>
+        <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script>
+        <script src="21.js"></script>
+        <div id="chartdiv"></div>
+        <!-- ================END CHART======================== -->
+    </div>
+</section>
+<section id="section2" class="section">
+    <div class="left-footer">
+        <h1>Investments (TOP BALANCES)</h1>
+        <table class="table2" border="1">
+            <thead>
+            <tr class="row100 head">
+                <th class="column100 column1" data-column="column1">Name</th>
+                <th class="column100 column2" data-column="column2">Tiker</th>
+                <th class="column100 column7" data-column="column7">Date Investments</th>
+                <th class="column100 column3" data-column="column3">%</th>
+                <th class="column100 column4" data-column="column4">Change Year</th>
+                <th class="column100 column5" data-column="column5">Change Month</th>
+                <th class="column100 column6" data-column="column6">Result All Time</th>
 
-    <!--Main Page Context-->
-    <section class="content">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-8 offset-md-2">
-                    <div class="card">
-                        <div class="card-header">
-                            <h3 class="card-title">Total Balance: $ 600.000</h3>
-                        </div>
-                        <div class="card-body">
-                            <table class="table table-bordered">
-                                <tr>
-                                    <td>1.</td>
-                                    <td>
-                                        <a>BitMax</a>
-                                        <a>Balance: $ 300.000</a>
-                                    </td>
-                                    <td>
-                                        Field for transaction Bank to Bank or Cryptocurency
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2.</td>
-                                    <td>
-                                        <a>Binance</a>
-                                        <a>Balance: $ 300.000</a>
-                                    </td>
-                                    <td>
-                                        Field for transaction Bank to Bank or Cryptocurency
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3.</td>
-                                    <td>id Session:</td>
-                                    <td>
-
-                                        <div class="btn-group w-100">
-                      <span class="btn btn-success col fileinput-button">
-                        <i class="fas fa-plus"></i>
-                        <span>Add files</span>
-                      </span>
-                                            <button type="submit" class="btn btn-primary col start">
-                                                <i class="fas fa-upload"></i>
-                                                <span>Start upload</span>
-                                            </button>
-                                            <button type="reset" class="btn btn-warning col cancel">
-                                                <i class="fas fa-times-circle"></i>
-                                                <span>Cancel upload</span>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="row100">
+                <td class="column100 column1" data-column="column1">Apple Shares</td>
+                <td class="column100 column2" data-column="column2">AAPL</td>
+                <th class="column100 column7" data-column="column7">02.02.2020</th>
+                <td class="column100 column3" data-column="column3">25</td>
+                <td class="column100 column4" data-column="column4">+ 50 %</td>
+                <td class="column100 column5" data-column="column5">+ 25 %</td>
+                <th class="column100 column6" data-column="column6">+ 10 %</th>
+            </tr>
+            </tbody>
+            <thead>
+            <tr class="row100 head">
+                <th class="column100 column1" data-column="column1">Epam SYS INC Shares</th>
+                <td class="column100 column2" data-column="column2">EPAM</td>
+                <th class="column100 column7" data-column="column7">02.02.2020</th>
+                <td class="column100 column3" data-column="column3">9</td>
+                <td class="column100 column4" data-column="column4">+ 50 %</td>
+                <td class="column100 column5" data-column="column5">+ 50 %</td>
+                <th class="column100 column6" data-column="column6">+ 10 %</th>
+            </tr>
+            <tr class="row100 head">
+                <th class="column100 column1" data-column="column1">Start-Up №1 Shares</th>
+                <td class="column100 column2" data-column="column2">X</td>
+                <th class="column100 column7" data-column="column7">02.02.2020</th>
+                <td class="column100 column3" data-column="column3">9</td>
+                <td class="column100 column4" data-column="column4">+ 50 %</td>
+                <td class="column100 column5" data-column="column5">+ 50 %</td>
+                <th class="column100 column6" data-column="column6">+ 10 %</th>
+            </tr>
+            <tr class="row100 head">
+                <th class="column100 column1" data-column="column1">Start-Up №2 Shares</th>
+                <td class="column100 column2" data-column="column2">X</td>
+                <th class="column100 column7" data-column="column7">02.02.2020</th>
+                <td class="column100 column3" data-column="column3">9</td>
+                <td class="column100 column4" data-column="column4">+ 50 %</td>
+                <td class="column100 column5" data-column="column5">+ 50 %</td>
+                <th class="column100 column6" data-column="column6">+ 10 %</th>
+            </tr>
+            <tr class="row100 head">
+                <th class="column100 column1" data-column="column1">Start-Up №3 Shares</th>
+                <td class="column100 column2" data-column="column2">X</td>
+                <th class="column100 column7" data-column="column7">02.02.2020</th>
+                <td class="column100 column3" data-column="column3">9</td>
+                <td class="column100 column4" data-column="column4">+ 50 %</td>
+                <td class="column100 column5" data-column="column5">+ 50 %</td>
+                <th class="column100 column6" data-column="column6">+ 10 %</th>
+            </tr>
+            <tr class="row100 head">
+                <th class="column100 column1" data-column="column1">Start-Up №4 Shares</th>
+                <td class="column100 column2" data-column="column2">X</td>
+                <th class="column100 column7" data-column="column7">02.02.2020</th>
+                <td class="column100 column3" data-column="column3">9</td>
+                <td class="column100 column4" data-column="column4">+ 50 %</td>
+                <td class="column100 column5" data-column="column5">+ 50 %</td>
+                <th class="column100 column6" data-column="column6">+ 10 %</th>
+            </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <div class="another-accounts" id="another-accounts">
+            <button type="submit" name="another-acc-button" id="another-acc-button">SEE ALL BALANCES</button>
         </div>
-    </section>
-    <!--End Main Page Context-->
-    <!--  End-->
+    </div>
+    <div class="right">
+        <h1>Added Banks Accounts</h1>
+        <table class="table7" border="1">
+            <thead>
+            <tr class="row100 head">
+                <th class="column100 column1" data-column="column1">Name</th>
+                <th class="column100 column4" data-column="column4">%</th>
+                <th class="column100 column6" data-column="column6">Total in USD</th>
 
-    <!-- Control Sidebar -->
-    <aside class="control-sidebar control-sidebar-dark">
-        <!-- Control sidebar content goes here -->
-    </aside>
-    <!-- /.control-sidebar -->
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="row100">
+                <td class="column100 column1" data-column="column1">Tinkoff Bank</td>
+                <td class="column100 column4" data-column="column4">100</td>
+                <th class="column100 column6" data-column="column6">5,653.24</th>
+            </tr>
+            <tr class="row100">
+                <td class="column100 column1" data-column="column1">Sber Bank</td>
+                <td class="column100 column4" data-column="column4">0</td>
+                <th class="column100 column6" data-column="column6">0</th>
+            </tr>
+            <tr class="row100">
+                <td class="column100 column1" data-column="column1">Yandex Money</td>
+                <td class="column100 column4" data-column="column4">0</td>
+                <th class="column100 column6" data-column="column6">0</th>
+            </tr>
+            </tbody>
+        </table>
+        <h1>Cryptocurency Balance</h1>
+        <table class="table7" border="1">
+            <thead>
+            <tr class="row100 head">
+                <th class="column100 column1" data-column="column1">Name</th>
+                <th class="column100 column4" data-column="column4">%</th>
+                <th class="column100 column6" data-column="column6">Total in USD</th>
+            </tr>
+            </thead>
+            <tbody>
 
+            <!-- ================Binance======================== -->
+            <tr class="row101">
+                <td class="column100 column1" data-column="column1">Binance</td>
+                <td class="column100 column4" data-column="column4">100</td>
+                <th class="column100 column6" data-column="column6">5,653.24</th>
+            </tr>
+            <!-- ================End Binance======================== -->
+            <tr class="row102">
+                <td class="column100 column1" data-column="column1">Bitfinex</td>
+                <td class="column100 column4" data-column="column4">0</td>
+                <th class="column100 column6" data-column="column6">0</th>
+            </tr>
 
-    <!-- Main Footer -->
-    <footer class="main-footer">
-        <div class="float-right d-none d-sm-block">
-            <b>Version</b> 0.0.1
-        </div>
-        <strong>Copyright &copy; 2020-2020 <a href="https://adminlte.io">LSD</a>.</strong> All rights reserved.
-    </footer>
-</div>
-<!-- ./wrapper -->
+            <!-- ================BitMax======================== -->
+            <tr class="row103">
+                <!--Name-->
+                <td class="column100 column1" data-column="column1">BitMax</td>
+                <!--%-->
+                <td class="column100 column4" data-column="column4">0</td>
+                <!--Total In USD-->
+                <th class="column100 column6" data-column="column6" th:text="${user.getName()}"></th>
+            </tr>
+            <!-- ================End BitMax======================== -->
+            <tr class="row104">
+                <td class="column100 column1" data-column="column1">ERC-20</td>
+                <td class="column100 column4" data-column="column4">0</td>
+                <th class="column100 column6" data-column="column6">0</th>
+            </tr>
+            </tbody>
+        </table>
+        <h1>Stocks Exchange</h1>
+        <table class="table7" border="1">
+            <thead>
+            <tr class="row100 head">
+                <th class="column100 column1" data-column="column1">Name</th>
+                <th class="column100 column4" data-column="column4">%</th>
+                <th class="column100 column6" data-column="column6">Total in USD</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="row100">
+                <td class="column100 column1" data-column="column1">Tinkoff Stock Exchange(Broker)</td>
+                <td class="column100 column4" data-column="column4">100</td>
+                <th class="column100 column6" data-column="column6">5,653.24</th>
+            </tr>
+            <tr class="row100">
+                <td class="column100 column1" data-column="column1">Sber Stock Exchange(Broker)</td>
+                <td class="column100 column4" data-column="column4">0</td>
+                <th class="column100 column6" data-column="column6">0</th>
+            </tr>
+            <tr class="row100">
+                <td class="column100 column1" data-column="column1">VTB Stock Exchange(Broker)</td>
+                <td class="column100 column4" data-column="column4">0</td>
+                <th class="column100 column6" data-column="column6">0</th>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<section id="section3" class="section">
+    <div class="right-footer1">
+        <h1>ADD YOUR API</h1>
+        <table class="add-api-table" border="1">
+            <thead>
+            <tr class="row100 head">
+                <th class="column100 column1" data-column="column1">SELECT TYPE</th>
+                <th class="column100 column2" data-column="column2">SELECT YOUR EXCHANGE</th>
+                <th class="column100 column3" data-column="column3">INPUT API</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="row100">
+                <td class="dropdown1" data-column="column1">
+                    <form action="" name="FILTER">
+                        <label>
+                            <select name="filter_for">
+                                <option value="Banks">Banks Account</option>
+                                <option value="Cryptocurency">Cryptocurency</option>
+                                <option value="Shares">Shares</option>
+                            </select>
+                        </label>
+                    </form>
+                </td>
+                <td class="dropdown1" data-column="column1">
+                    <form action="" name="FILTER">
+                        <label>
+                            <select name="filter_for">
+                                <option value="Tinkoff">Tinkoff</option>
+                                <option value="SberBank">SberBank</option>
+                                <option value="Binance">Binance</option>
+                                <option value="BitMax">BitMax</option>
+                                <option value="ERC-20">ERC-20</option>
+                            </select>
+                        </label>
+                    </form>
+                </td>
+                <td class="dropdown1" data-column="column1">
+                    <form id="add-api-form" name="add-api-form" method="post">
+                        <label for="p-a-k"></label>
+                        <input type="text" class="public-api-key" placeholder="Введите Public API Key" name="p-a-k"
+                               id="p-a-k">
+                        <label for="private-a-k"></label>
+                        <input type="password" class="private-api-key" placeholder="Введите Private API Key"
+                               name="private-a-k"
+                               id="private-a-k">
+                        <button type="submit">SUBMIT</button>
 
-<!-- REQUIRED SCRIPTS -->
-<!-- jQuery -->
-<script src="plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap -->
-<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- overlayScrollbars -->
-<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-<!-- AdminLTE App -->
-<script src="dist/js/adminlte.js"></script>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+<!-- ================FOOTER======================== -->
+<footer id="footer" class="footer">
+    <div class="container3">
+        <H1>TRANSACTION</H1>
+        <table class="footer-table" border="1">
+            <thead>
+            <tr class="row100 head">
+                <th class="column100 column1" data-column="column1">SELECT NAME</th>
+                <th class="column100 column2" data-column="column2">FROM</th>
+                <th class="column100 column2" data-column="column2">TO</th>
+                <th class="column100 column2" data-column="column2">VALUE</th>
+            </tr>
+            </thead>
+            <tbody>
 
-<!-- PAGE PLUGINS -->
-<!-- jQuery Mapael -->
-<script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
-<script src="plugins/raphael/raphael.min.js"></script>
-<script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
-<script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
-<!-- ChartJS -->
-<script src="plugins/chart.js/Chart.min.js"></script>
+            <tr class="row100">
+                <td class="dropdown1" data-column="column1">
+                    <form action="" name="FILTER">
+                        <label>
+                            <select name="filter_for">
+                                <option value="Banks">AAPL</option>
+                                <option value="Cryptocurency">EPAM</option>
+                                <option value="Shares">ETH</option>
+                                <option value="Shares">BTC</option>
+                                <option value="Shares">USD</option>
+                                <option value="Shares">ONT</option>
+                                <option value="Shares">LTC</option>
+                                <option value="Shares">ZXC</option>
+                                <option value="Shares">RUB</option>
+                            </select>
+                        </label>
+                    </form>
+                </td>
+                <td class="dropdown1" data-column="column1">
+                    <form action="" name="FILTER">
+                        <label>
+                            <select name="filter_for">
+                                <option value="Banks">BitMax</option>
+                                <option value="Cryptocurency">Binance</option>
+                                <option value="Shares">Tinkoff</option>
+                                <option value="Shares">ChaseBank</option>
+                                <option value="Shares">SberBank</option>
+                            </select>
+                        </label>
+                    </form>
+                </td>
+                <td class="dropdown1" data-column="column1">
+                    <form action="" name="FILTER">
+                        <label>
+                            <select name="filter_for">
+                                <option value="Banks">BitMax</option>
+                                <option value="Cryptocurency">Binance</option>
+                                <option value="Shares">Tinkoff</option>
+                                <option value="Shares">ChaseBank</option>
+                                <option value="Shares">SberBank</option>
+                            </select>
+                        </label>
+                    </form>
+                </td>
+                <td>
+                    <label for="p-a"></label>
+                    <label for="p-a"></label><input type="text" class="public-api-key"
+                                                    placeholder="Inter PRIVATE KEY" name="p-a"
+                                                    id="p-a">
+                    <button type="submit">SUBMIT</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</footer>
 
-<!-- AdminLTE for demo purposes -->
-<script src="dist/js/demo.js"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="dist/js/pages/dashboard2.js"></script>
-<!-- jQuery -->
-<script src="../../plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- Select2 -->
-<script src="../../plugins/select2/js/select2.full.min.js"></script>
-<!-- Bootstrap4 Duallistbox -->
-<script src="../../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
-<!-- InputMask -->
-<script src="../../plugins/moment/moment.min.js"></script>
-<script src="../../plugins/inputmask/jquery.inputmask.min.js"></script>
-<!-- date-range-picker -->
-<script src="../../plugins/daterangepicker/daterangepicker.js"></script>
-<!-- bootstrap color picker -->
-<script src="../../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
-<!-- Tempusdominus Bootstrap 4 -->
-<script src="../../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
-<!-- Bootstrap Switch -->
-<script src="../../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-<!-- BS-Stepper -->
-<script src="../../plugins/bs-stepper/js/bs-stepper.min.js"></script>
-<!-- dropzonejs -->
-<script src="../../plugins/dropzone/min/dropzone.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../../dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../../dist/js/demo.js"></script>
 </body>
 </html>

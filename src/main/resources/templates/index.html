@@ -1,22 +1,30 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="ISO-8859-1"/>
-    <title>A.B.S.</title>
-    <link rel="stylesheet" th:href="@{/css/maincss.css}"/>
+    <meta charset="UTF-8"/>
+    <title>ALL BALANCE SYS</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="autorisation.css">
 </head>
 <body>
-<!-- Navbar -->
-<div class="navb">
-    <a class="active" th:href="@{/}">Home</a>
+<header id="header" class="header">
+    <div class="container1">
+        <!-- ================NAVBAR======================== -->
+        <ul class="menu">
+            <li><a class="active" th:href="@{/}">HOME</a></li>
+            <li><a class="settings" th:href="@{/login1}">LOGIN</a>
+            <li><a class="settings" th:href="@{/registrationPage}">REGISTRATION</a>
+        </ul>
+    </div>
+</header>
+<!-- ================MAIN======================== -->
+<section id="index" class="index">
 
-    <a th:href="@{/login}">Login</a>
-    <a th:href="@{/registrationPage}">Registration</a>
-</div>
+</section>
 
-<!-- Main Container -->
-<div class="main">
+<footer id="index-footer" class="index-footer">
 
-</div>
+</footer>
 </body>
 </html>

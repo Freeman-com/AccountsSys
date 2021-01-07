@@ -1,39 +1,27 @@
 package com.root.controllers;
 
-import com.root.dao.UserRepository;
 import com.root.model.User;
-import com.root.role.Role;
-import com.root.security.ActiveUserStore;
+import com.root.repository.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 
 @Controller
-@RequestMapping("/")
 public class RegistrationRestController {
-
-    final
-    ActiveUserStore activeUserStore;
-
-    Role role;
 
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
 
-    final
-    UserRepository userRepository;
+    private final UserRepository userRepository;
 
+    public RegistrationRestController(UserRepository userRepository) {
 
-    public RegistrationRestController(UserRepository userRepository, ActiveUserStore activeUserStore) {
         this.userRepository = userRepository;
-
-        this.activeUserStore = activeUserStore;
     }
 
     @GetMapping()
@@ -46,55 +34,66 @@ public class RegistrationRestController {
         return "index";
     }
 
-    @GetMapping("/login")
+//    @GetMapping("/login")
+//    public String loginPage(@ModelAttribute("user") User user, HttpServletRequest request) {
+//        String passwd1 = request.getParameter("passwd");
+//        String email = user.getEmail();
+//
+//        String x = email + passwd1;
+//        byte[] c = x.getBytes();
+//        String q = bytesToHex(c);
+//
+//        if(userRepository.findByEmail(email) != null & userRepository.findByHex(q) != null) {
+//
+//        }
+//        return "login";
+//    }
+
+
+
+    @GetMapping("/login1")
     public String loginPage(@ModelAttribute("user") User user) {
-        return "login";
+        return "login1";
     }
 
-    @PostMapping(path = "/click_login")
-    public String loginMethod(@ModelAttribute("user") User user, Model model, HttpServletRequest request) {
+    @PostMapping("/login1")
+    public String loginMethod(HttpServletRequest request, @ModelAttribute("user") User user) {
 
-        model.addAllAttributes("user", activeUserStore.getUsers());
-
+        String passwd1 = request.getParameter("passwd");
         String email = user.getEmail();
-        String password2 = request.getParameter("passwd");
-        String x = email + password2;
+
+        String x = email + passwd1;
         byte[] c = x.getBytes();
         String q = bytesToHex(c);
 
 
-        if (userRepository.findByHex(q) == null) {
-            return "redirect:login";
-        } else
-            user.getEmail();
+        if(userRepository.findByHex(q) != null) {
+            user.setName(userRepository.findByEmail(user.getEmail()).getName());
             return "admin";
+        }
+        else {
+            return "login1";
+        }
     }
+
 
     @GetMapping("/registrationPage")
     public String registrationPage(@ModelAttribute("user") User user) {
 
-        return "register";
-    }
-
-    @GetMapping("/admin")
-    public String adminPage(User user) {
-
-        // if ()
-        return "forward:register";
+        return "registration-page";
     }
 
     @PostMapping("/create")
     public String registerUserAccount(@ModelAttribute("user") User user, HttpServletRequest request,
                                       BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "/register";
+            return "registration-page";
         }
-
         String passwd1 = request.getParameter("passwd");
         String email = user.getEmail();
 
         if (userRepository.findByEmail(email) != null) {
-            return "redirect:login";
+            return "login1";
         }
 
         String x = email + passwd1;
@@ -118,5 +117,11 @@ public class RegistrationRestController {
             hexString.append(hex);
         }
         return hexString.toString();
+    }
+
+    public  String registredUserAccount(User user) {
+        int id = user.getId();
+        String name = user.getName();
+        return null;
     }
 }

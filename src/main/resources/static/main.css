@@ -1,0 +1,336 @@
+/*!
+ *   Admin Page. Web Resource: Account Balance System
+ *   Author: Anthony Freeman
+ *   Website: AdminLTE.io <https://accountbalance.com>
+ *   License:
+ */
+/*!
+ * Copyright 2020-2021 The A.B.S. Authors
+ * Licensed under
+ */
+
+body {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    background-color: white;
+    font-family: Roboto, monospace;
+}
+
+header {
+
+    background-color: #343a40;
+}
+
+ul {
+
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+}
+
+.menu {
+
+}
+
+li {
+
+    position: relative;
+}
+
+li:hover .sub-menu {
+    display: flex;
+}
+
+a {
+    display: block;
+    color: beige;
+    text-decoration: none;
+    background-color: #343a40;
+    padding: 1em;
+    white-space: nowrap;
+}
+
+a:hover {
+    background-color: orange;
+}
+
+a:focus {
+    outline: none;
+    background-color: orange;
+}
+
+.sub-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+}
+
+.section {
+
+    display: flex;
+}
+
+.left {
+    width: 100%;
+    height: 60vh;
+    /*display: flex;*/
+    /*justify-content: left;*/
+    padding-left: 1%;
+    padding-right: 1%;
+    /*align-items: start;*/
+    font-size: 14px;
+    color: floralwhite;
+    background-color: #343a40;
+}
+
+#chartdiv {
+    width: 100%;
+    height: 500px;
+}
+
+.left-footer {
+    width: 60%;
+    height: 80vh;
+    display: flex;
+    padding-left: 1%;
+
+    justify-content: left;
+    align-items: start;
+    font-size: 14px;
+    background-color: darkslategrey;
+    color: floralwhite;
+    padding-top: 1%;
+}
+
+.right {
+    width: 40%;
+    height: 80vh;
+    padding-top: 1%;
+    padding-left: 1%;
+    font-size: 14px;
+    background-color: #a2c6e0;
+
+}
+
+.right-footer {
+    width: 40%;
+    height: 32vh;
+    display: flex;
+    padding-left: 1%;
+    color: floralwhite;
+
+    font-size: 14px;
+    background-color: #343a40;
+}
+
+.right-footer1 {
+    width: 100%;
+    height: 32vh;
+    display: flex;
+    padding-left: 1%;
+    color: floralwhite;
+    font-size: 14px;
+    background-color: #343a40;
+}
+
+
+.section div {
+
+    display: flex;
+    flex-direction: column;
+}
+
+.section .canvas {
+    float: left;
+}
+
+.table1 {
+    font-size: 14px;
+    width: 100%;
+}
+
+.table1 .column2 {
+    text-align: center;
+}
+
+.table1 .column1 {
+    text-align: left;
+}
+
+.table2 {
+    font-size: 14px;
+    width: 70%;
+}
+
+.table2 .column1 {
+    text-align: left;
+}
+
+.table2 .column2 {
+    text-align: center;
+}
+
+.table2 .column3 {
+    text-align: center;
+}
+
+.table2 .column4 {
+    text-align: center;
+}
+
+.table2 .column5 {
+    text-align: center;
+}
+
+.table3 {
+
+    padding-top: 2%;
+    font-size: 14px;
+    width: 40%;
+
+}
+
+.table3 .column2 {
+    text-align: center;
+}
+
+.table3 .column1 {
+    text-align: left;
+}
+
+.table5 {
+    padding-top: 2%;
+    font-size: 14px;
+    width: 100%;
+}
+
+.table5 .column2 {
+    text-align: center;
+}
+
+.table5 .column1 {
+    text-align: left;
+}
+
+.table7 {
+    font-size: 14px;
+    width: 90%;
+}
+
+.row103 .column1 {
+    color: white;
+    background-color: red;
+}
+
+.row104 .column1 {
+    color: white;
+    background-color: blue;
+}
+
+.footer-table {
+    font-size: 14px;
+    width: 100%;
+}
+
+.footer-table button {
+    background-color: red;
+    font-family: Roboto, monospace;
+    font-size: 16px;
+    color: floralwhite;
+}
+
+.add-api-table {
+    font-size: 14px;
+    width: 40%;
+}
+
+.add-api-table button {
+    background-color: red;
+    font-family: Roboto, monospace;
+    font-size: 16px;
+    color: floralwhite;
+}
+
+
+.unit {
+    fill: none;
+    stroke-width: 2;
+}
+
+.unit:nth-child(1) {
+    stroke: #86cfa3;
+}
+
+.unit:nth-child(2) {
+    stroke: #a2c6e0;
+}
+
+.unit:nth-child(3) {
+    stroke: red;
+}
+
+.unit:nth-child(1) {
+    stroke: blue;
+    stroke-dasharray: 8 100;
+}
+
+.unit:nth-child(2) {
+    stroke: red;
+    stroke-dasharray: 11 100;
+    stroke-dashoffset: -8;
+}
+
+.unit:nth-child(3) {
+    stroke: orange;
+    stroke-dasharray: 70 100;
+    stroke-dashoffset: -19;
+}
+
+.footer {
+    background-color: darkgray;
+    font-size: 14px;
+
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    padding-left: 1%;
+
+    justify-content: left;
+    align-items: start;
+}
+
+.another-accounts {
+    padding-top: 2%;
+}
+
+.another-accounts button {
+    text-align: center;
+    background-color: red;
+    font-size: 16px;
+    font-family: Roboto, monospace;
+    color: floralwhite;
+}
+
+/*======================================*/
+
+.section-registration {
+    display: flex;
+    align-items: center;
+    height: 20em;
+    justify-content: center;
+}
+
+.form-control {
+
+}
+
+.topnav-right {
+    float: right;
+}
+
+
+
+
