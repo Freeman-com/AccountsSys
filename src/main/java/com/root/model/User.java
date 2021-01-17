@@ -4,11 +4,12 @@ import com.root.role.Role;
 
 import javax.persistence.*;
 import javax.servlet.http.HttpServletRequest;
+import java.io.Serializable;
 import java.util.Collection;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements Serializable {
 
     @Id
     @Column(name = "id")

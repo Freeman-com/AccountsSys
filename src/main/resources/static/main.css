@@ -1,33 +1,22 @@
-/*!
- *   Admin Page. Web Resource: Account Balance System
- *   Author: Anthony Freeman
- *   Website: AdminLTE.io <https://accountbalance.com>
- *   License:
- */
-/*!
- * Copyright 2020-2021 The A.B.S. Authors
- * Licensed under
- */
-
 body {
     padding: 0;
     margin: 0;
     width: 100%;
     height: 100%;
     overflow-x: hidden;
-    background-color: white;
     font-family: Roboto, monospace;
+    background-image: url("download (1).jpg");
+    background-attachment: scroll;
+    background-size: cover;
 }
 
 header {
-
     background-color: #343a40;
 }
 
-ul {
-
+header ul {
     display: flex;
-    padding-left: 0;
+    padding-left: 1%;
     list-style: none;
 }
 
@@ -35,17 +24,16 @@ ul {
 
 }
 
-li {
-
+header li {
     position: relative;
 }
 
-li:hover .sub-menu {
+header li:hover .sub-menu {
     display: flex;
 }
 
-a {
-    display: block;
+header a {
+    display: flex;
     color: beige;
     text-decoration: none;
     background-color: #343a40;
@@ -53,11 +41,11 @@ a {
     white-space: nowrap;
 }
 
-a:hover {
+header a:hover {
     background-color: orange;
 }
 
-a:focus {
+header a:focus {
     outline: none;
     background-color: orange;
 }
@@ -68,269 +56,110 @@ a:focus {
     position: absolute;
 }
 
-.section {
-
-    display: flex;
+.t123 {
+    display: block;
+    padding-left: 130vh;
 }
 
-.left {
-    width: 100%;
-    height: 60vh;
-    /*display: flex;*/
-    /*justify-content: left;*/
-    padding-left: 1%;
-    padding-right: 1%;
-    /*align-items: start;*/
+/*SECTION1*/
+/*    CENTRE-SIDE*/
+
+section li {
+    display: block;
+    position: relative;
+}
+
+.section-first {
+    width: 50%;
+    margin-right: auto;
+    margin-left: auto;
+    display: block;
+}
+
+.centre-side-section-first {
+    font-family: "Roboto Light", monospace;
     font-size: 14px;
-    color: floralwhite;
-    background-color: #343a40;
-}
-
-#chartdiv {
-    width: 100%;
-    height: 500px;
-}
-
-.left-footer {
-    width: 60%;
-    height: 80vh;
-    display: flex;
-    padding-left: 1%;
-
-    justify-content: left;
-    align-items: start;
-    font-size: 14px;
-    background-color: darkslategrey;
-    color: floralwhite;
-    padding-top: 1%;
-}
-
-.right {
-    width: 40%;
-    height: 80vh;
-    padding-top: 1%;
-    padding-left: 1%;
-    font-size: 14px;
-    background-color: #a2c6e0;
 
 }
 
-.right-footer {
-    width: 40%;
-    height: 32vh;
-    display: flex;
-    padding-left: 1%;
-    color: floralwhite;
-
-    font-size: 14px;
-    background-color: #343a40;
-}
-
-.right-footer1 {
-    width: 100%;
-    height: 32vh;
-    display: flex;
-    padding-left: 1%;
-    color: floralwhite;
-    font-size: 14px;
-    background-color: #343a40;
-}
-
-
-.section div {
-
-    display: flex;
-    flex-direction: column;
-}
-
-.section .canvas {
-    float: left;
-}
-
-.table1 {
-    font-size: 14px;
-    width: 100%;
-}
-
-.table1 .column2 {
-    text-align: center;
-}
-
-.table1 .column1 {
-    text-align: left;
-}
-
-.table2 {
-    font-size: 14px;
-    width: 70%;
-}
-
-.table2 .column1 {
-    text-align: left;
-}
-
-.table2 .column2 {
-    text-align: center;
-}
-
-.table2 .column3 {
-    text-align: center;
-}
-
-.table2 .column4 {
-    text-align: center;
-}
-
-.table2 .column5 {
-    text-align: center;
-}
-
-.table3 {
-
-    padding-top: 2%;
-    font-size: 14px;
-    width: 40%;
-
-}
-
-.table3 .column2 {
-    text-align: center;
-}
-
-.table3 .column1 {
-    text-align: left;
-}
-
-.table5 {
-    padding-top: 2%;
-    font-size: 14px;
-    width: 100%;
-}
-
-.table5 .column2 {
-    text-align: center;
-}
-
-.table5 .column1 {
-    text-align: left;
-}
-
-.table7 {
-    font-size: 14px;
-    width: 90%;
-}
-
-.row103 .column1 {
-    color: white;
-    background-color: red;
-}
-
-.row104 .column1 {
-    color: white;
-    background-color: blue;
-}
-
-.footer-table {
-    font-size: 14px;
-    width: 100%;
-}
-
-.footer-table button {
-    background-color: red;
+.sub-menu1 {
     font-family: Roboto, monospace;
     font-size: 16px;
-    color: floralwhite;
 }
 
-.add-api-table {
-    font-size: 14px;
-    width: 40%;
+.sub-menu1 h {
+    padding-left: 0%;
 }
 
-.add-api-table button {
-    background-color: red;
+.centre-side-section-first a {
+    display: block;
+    color: darkgray;
+    text-align: center;
+    padding: 10px 10px;
+    text-decoration: none;
+}
+
+.centre-side-section-first ul {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 50px;
+    text-decoration: none;
+}
+
+/*  END CENTRE-SIDE*/
+/* END SECTION1*/
+
+/*==========================*/
+
+.main-table {
+    padding-left: 11%;
+    padding-top: 5%;
+    width: 100%;
+    height: 50vh;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    color: white;
+    border-collapse: collapse;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+.add-api {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.add-api h4 {
+    color: white;
     font-family: Roboto, monospace;
-    font-size: 16px;
-    color: floralwhite;
 }
 
-
-.unit {
-    fill: none;
-    stroke-width: 2;
+.add-api input [type=text] {
+    padding: 4px 20px;
 }
 
-.unit:nth-child(1) {
-    stroke: #86cfa3;
+.add-api input [type=email] {
+    padding: 2px 40px;
 }
 
-.unit:nth-child(2) {
-    stroke: #a2c6e0;
-}
-
-.unit:nth-child(3) {
-    stroke: red;
-}
-
-.unit:nth-child(1) {
-    stroke: blue;
-    stroke-dasharray: 8 100;
-}
-
-.unit:nth-child(2) {
-    stroke: red;
-    stroke-dasharray: 11 100;
-    stroke-dashoffset: -8;
-}
-
-.unit:nth-child(3) {
-    stroke: orange;
-    stroke-dasharray: 70 100;
-    stroke-dashoffset: -19;
-}
-
-.footer {
+.button-button1 {
     background-color: darkgray;
-    font-size: 14px;
-
-    width: 100%;
-    height: 30vh;
-    display: flex;
-    padding-left: 1%;
-
-    justify-content: left;
-    align-items: start;
-}
-
-.another-accounts {
-    padding-top: 2%;
-}
-
-.another-accounts button {
+    border: none;
+    color: white;
+    padding: 4px 20px;
     text-align: center;
-    background-color: red;
-    font-size: 16px;
-    font-family: Roboto, monospace;
-    color: floralwhite;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
 }
-
-/*======================================*/
-
-.section-registration {
-    display: flex;
-    align-items: center;
-    height: 20em;
-    justify-content: center;
-}
-
-.form-control {
-
-}
-
-.topnav-right {
-    float: right;
-}
-
-
 
 

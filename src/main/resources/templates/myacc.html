@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>MY ACC</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<header id="header" class="header">
+    <div class="container1">
+        <!-- ================NAVBAR======================== -->
+        <ul class="menu">
+            <li><a class="active" th:href="@{/}">HOME</a></li>
+            <li><a class="settings" th:href="@{/myasset}">MY ASSET</a>
+            <li><a class="settings" th:href="@{/}">MY ACCOUNTS</a>
+            <li><a class="settings" th:href="@{/}">MARKET</a>
+            <li><a class="settings" th:href="@{/}">TRADING</a>
+
+            <li class="t123"><a class="settings">Anthony Freeman</a>
+                <ul class="sub-menu">
+                    <li style="float: left"><a href="account.html">Account</a></li>
+                    <li style="float: left"><a href="myasset.html">My Asset</a></li>
+                    <li style="float: left"><a href="myorders.html">My Orders</a></li>
+                    <li style="float: left"><a href="withdrawal.html">Withdrawal</a></li>
+                    <li style="float: right"><a class="active1" href="addAPI.html">Add API</a></li>
+                    <li style="float: right"><a class="active1" th:href="@{/logout}">LogOut</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+<main class="main-context">
+    <div class="add-api">
+        <h4>
+            Choose Exchange
+            <p>
+                <label>
+                    <select>
+                        <option>Choose Exchange</option>
+                        <option>Binance</option>
+                        <option>Bitfinex</option>
+                        <option>BitMax</option>
+                    </select>
+                </label>
+        </h4>
+        <hr>
+        <h4>Enter Data API</h4>
+        <form>
+            <label for="email"></label>
+            <input type="email" id="email" name="email" placeholder="Enter Email">
+            <label for="name-regiter"></label>
+            <input type="email" id="name-regiter" name="name-regiter"
+                   placeholder="Enter Name-Register">
+            <label for="fname"></label>
+            <input type="text" id="fname" name="fname" placeholder="Enter Public Key">
+            <label for="lname"></label>
+            <input type="text" id="lname" name="lname" placeholder="Enter Secret Key">
+            <button type="submit" class="button-button1">Add API</button>
+        </form>
+    </div>
+</main>
+</body>
+</html>

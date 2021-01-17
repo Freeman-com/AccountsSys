@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="'ASSET - ' + ${session.userData.getName()}"></title>
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<header id="header" class="header">
+    <div class="container1">
+        <!-- ================NAVBAR======================== -->
+        <ul class="menu">
+            <li><a class="active" th:href="@{/}">HOME</a></li>
+            <li><a class="settings" th:href="@{/myasset}">MY ASSET</a>
+            <li><a class="settings" th:href="@{/myaccounts}">MY ACCOUNTS</a>
+            <li><a class="settings" th:href="@{/}">MARKET</a>
+            <li><a class="settings" th:href="@{/}">TRADING</a>
+
+            <li class="t123">
+                <a class="settings1" th:text="${session.userData.getName()}">Anthony</a>
+                <ul class="sub-menu">
+                    <li style="float: left"><a href="account.html">Account</a></li>
+                    <li style="float: left"><a href="myasset.html">My Asset</a></li>
+                    <li style="float: left"><a href="myorders.html">My Orders</a></li>
+                    <li style="float: left"><a href="withdrawal.html">Withdrawal</a></li>
+                    <li style="float: right"><a class="active1" href="addAPI.html">Add API</a></li>
+                    <li style="float: right"><a class="active1" th:href="@{/logout}">LogOut</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+<section class="section-first" id="section1">
+    <!--===================CENTRE-SIDE======================-->
+    <div class="centre-side-section-first">
+        <ul>
+            <li class="x1" style="float: left"><a>Market Value</a>
+                <ul class="sub-menu1">
+                    <h th:href="@{/}">$3,550</h>
+                </ul>
+            </li>
+            <li style="float: left"><a>Change 1W</a>
+                <ul class="sub-menu1">
+                    <h th:href="@{/}">+ $550</h>
+                </ul>
+            </li>
+            <li style="float: left"><a>Change 1M</a>
+                <ul class="sub-menu1">
+                    <h th:href="@{/}">+ $1,550</h>
+                </ul>
+            </li>
+            <li style="float: left"><a>Net cost</a>
+                <ul class="sub-menu1">
+                    <h th:href="@{/}">$550</h>
+                </ul>
+            </li>
+            <li style="float: left"><a>All Time Profit</a>
+                <ul class="sub-menu1">
+                    <h th:href="@{/}">+ $3,550</h>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <div class="main-table">
+        <div style="overflow-x:auto;">
+            <hr>
+            <table>
+                <tr>
+                    <th>Asset</th>
+                    <th>Market Price</th>
+                    <th>Profit (24h)</th>
+                    <th>All Time Profit</th>
+                    <th>Quantity</th>
+                    <th>Holdings</th>
+                </tr>
+                <tr>
+                    <td>LTO</td>
+                    <td>$ 0,2198</td>
+                    <td>+ $200</td>
+                    <td>+ $3,550.00</td>
+                    <td>18,000 LTO</td>
+                    <td>$ 4,050.00</td>
+                </tr>
+                <tr>
+                    <td>ETH</td>
+                    <td>$ 0,2198</td>
+                    <td>+ $200</td>
+                    <td>+ $3,550.00</td>
+                    <td>18,000 LTO</td>
+                    <td>$ 4,050.00</td>
+                </tr>
+                <tr>
+                    <td>BTC</td>
+                    <td>$ 0,2198</td>
+                    <td>+ $200</td>
+                    <td>+ $3,550.00</td>
+                    <td>18,000 LTO</td>
+                    <td>$ 4,050.00</td>
+                </tr>
+                <tr>
+                    <td>ETH</td>
+                    <td>$ 0,2198</td>
+                    <td>+ $200</td>
+                    <td>+ $3,550.00</td>
+                    <td>18,000 LTO</td>
+                    <td>$ 4,050.00</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <!--===================END CENTRE-SIDE======================-->
+</section>
+<!--===================END SECTION-1======================-->
+
+
+</body>
+</html>
